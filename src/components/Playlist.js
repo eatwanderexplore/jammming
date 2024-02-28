@@ -1,7 +1,12 @@
 import React from "react";
 
-function playlist() {
-
+function Playlist(props) {
+    return (
+        <div className="Playlist">
+          <h2>Playlist</h2>
+          <TrackList tracks={props.playlistTracks} />
+        </div>
+      );
 }
 
-export default playlist;
+export default Playlist;

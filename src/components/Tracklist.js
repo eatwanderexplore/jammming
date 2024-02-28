@@ -1,6 +1,7 @@
 import React from "react";
+import Track from "./Track";
 
-function tracklist() {
+function Tracklist() {
     return (
         <div className="TrackList">
           {tracklist.map(track => <Track key={track.id} track={track} />)}
@@ -8,4 +9,4 @@ function tracklist() {
       );
 }
 
-export default tracklist;
+export default Tracklist;
