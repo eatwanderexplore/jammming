@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import './App.css';
-import SearchBar from './components/SearchBar';
-import SearchResults from './components/SearchResults';
-import Playlist from './components/Playlist';
+import SearchBar from '../SearchBar/SearchBar';
+import SearchResults from '../SearchResults/SearchResults';
+import Playlist from '../Playlist/Playlist';
+import Tracklist from '../Tracklist/Tracklist';
 
 function App() {
   // Define state to store information
   const [searchResults, setSearchResults] = useState([
     { id: '1', name: 'Song 1', artist: 'Artist 1', album: 'Album 1' }
   ]);
-  
+
   const [playlistName, setPlaylistName] = useState('My Playlist');
 
   const [playlistTracks, setPlaylistTracks] = useState([
@@ -23,7 +24,13 @@ function App() {
 
   // Function to handle adding tracks to the playlist
   const addTrackToPlaylist = (track) => {
-    setPlaylistTracks([...playlistTracks, track]);
+    // Check if the track is already in the playlist
+    const isTrackInPlaylist = playlistTracks.some(existingTrack => existingTrack.id === track.id);
+    
+    // If the track is not in the playlist, add it
+    if (!isTrackInPlaylist) {
+      setPlaylistTracks([...playlistTracks, track]);
+    }
   };
 
   // Function to handle removing tracks from the playlist
@@ -34,20 +41,15 @@ function App() {
   return (
     <div className="App">
       <h1>Jammming</h1>
-      <input
-        type="text"
-        value={playlistName}
-        onChange={handlePlaylistNameChange}
-      />
+      <SearchBar />
       <div className="App-playlist">
+        <SearchResults
+          searchResults={searchResults}
+          onAddTrack={addTrackToPlaylist}
+        />
         <Playlist
           playlistName={playlistName}
           playlistTracks={playlistTracks}
-        />
-        <TrackList
-          tracks={playlistTracks}
-          onAddTrack={addTrackToPlaylist}
-          onRemoveTrack={removeTrackFromPlaylist}
         />
       </div>
     </div>
