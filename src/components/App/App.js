@@ -39,18 +39,20 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Jammming</h1>
+    <div>
+      <h1>Ja<span className='highlight'>mmm</span>ing</h1>
+      <div className="App">
       <SearchBar />
-      <div className="App-playlist">
-        <SearchResults
-          searchResults={searchResults}
-          onAddTrack={addTrackToPlaylist}
-        />
-        <Playlist
-          playlistName={playlistName}
-          playlistTracks={playlistTracks}
-        />
+        <div className="App-playlist">
+          <SearchResults
+            searchResults={searchResults}
+            onAddTrack={addTrackToPlaylist}
+          />
+          <Playlist
+            playlistName={playlistName}
+            playlistTracks={playlistTracks}
+          />
+        </div>
       </div>
     </div>
   );
