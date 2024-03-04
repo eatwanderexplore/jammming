@@ -1,12 +1,12 @@
 import React from "react";
 import Track from "../Track/Track";
 
-function Tracklist() {
+function TrackList({ tracks }) {
     return (
         <div className="TrackList">
-          {tracklist.map(track => <Track key={track.id} track={track} />)}
+          {tracks.map(track => <Track key={track.id} track={track} />)}
         </div>
       );
 }
 
-export default Tracklist;
+export default TrackList;

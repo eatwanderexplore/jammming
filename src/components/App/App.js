@@ -3,7 +3,7 @@ import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
-import Tracklist from '../Tracklist/Tracklist';
+import TrackList from '../Tracklist/Tracklist';
 
 function App() {
   // Define state to store information
