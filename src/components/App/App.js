@@ -51,6 +51,7 @@ function App() {
           <Playlist
             playlistName={playlistName}
             playlistTracks={playlistTracks}
+            onRemoveTrack={removeTrackFromPlaylist}
           />
         </div>
       </div>
